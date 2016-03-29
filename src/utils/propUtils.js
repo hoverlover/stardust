@@ -1,5 +1,8 @@
-import { Children } from 'react'
 import _ from 'lodash'
+import React, { Children } from 'react'
+
+import Icon from '../elements/Icon/Icon'
+import Image from '../elements/Image/Image'
 
 /**
  * Selects all of the props specified in pluginPropTypes
@@ -60,3 +63,15 @@ export const customPropTypes = {
   },
 }
 
+// ------------------------------------
+// Prop Renderers
+// ------------------------------------
+export const iconPropRenderer = (val) => _.isString(val) ? <Icon className={val} /> : val
+export const imagePropRenderer = (val) => _.isString(val) ? <Image src={val} /> : val
+
+// ------------------------------------
+// Prop To Class Name
+// ------------------------------------
+export const useKeyOnly = (val, key) => val && key
+export const useValueAndKey = (val, key) => val && val !== true && `${val} ${key}`
+export const useKeyOrValueAndKey = (val, key) => val && (val === true ? key : `${val} ${key}`)
