@@ -67,11 +67,6 @@ webpackConfig.output = {
 // ------------------------------------
 webpackConfig.plugins = [
   new webpack.DefinePlugin(config.compiler_globals),
-  new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    'window.jQuery': 'jquery',
-  }),
   new HtmlWebpackPlugin({
     template: paths.docsSrc('index.html'),
     hash: false,
